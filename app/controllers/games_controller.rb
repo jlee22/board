@@ -1,4 +1,5 @@
-get '/games/new' do
+get '/games/:id/new' do
+  @user = User.find(params[:id])
   erb :'games/new'
 end
 

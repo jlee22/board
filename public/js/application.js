@@ -6,9 +6,10 @@ $(document).ready(function() {
     $('#edit-user-form').removeClass('hidden');
   });
   $('#edit-user-form').on('submit',function() {
-    event.preventDefault();
     $('#edit-user-button').removeClass('hidden');
     $('#edit-user-string').addClass('hidden');
     $('#edit-user-form').addClass('hidden');
+    // event.preventDefault();
+
   });
 });
