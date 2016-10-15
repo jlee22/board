@@ -9,9 +9,10 @@ gem 'sinatra-contrib'
 
 gem 'activesupport', '~>4.2.0'
 gem 'activerecord', '~>4.2.0'
-
+gem 'httparty'
 gem 'rake'
-
+gem 'dotenv'
+gem 'faker'
 gem 'bcrypt'
 gem 'shotgun'
 gem 'pry'
