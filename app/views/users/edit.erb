@@ -1,0 +1,5 @@
+<form id='edit-user-form' class="hidden" action="/users/<%= @user.id %>/edit" method="post">
+  <input name="_method" value="put" type="hidden"/>
+  <input type="text" name="user[name]" placeholder="Name:">
+  <input type="submit" name="commit" value="Update">
+</form>
