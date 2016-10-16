@@ -13,8 +13,8 @@ post '/games' do
 
 
 
-
-
+  @minage = game2.first[1]["item"]["minage"]["value"]
+  @year_published = game2.first[1]["item"]["yearpublished"]["value"]
   @minplayers = game2.first[1]["item"]["minplayers"]["value"]
   @maxplayers = game2.first[1]["item"]["maxplayers"]["value"]
   @game_description = game2.first[1]["item"]["description"].gsub("(from the back of the box:)","").gsub("&#10;","").gsub("&quot;","")
