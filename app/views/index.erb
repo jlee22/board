@@ -1,2 +1,10 @@
 <h1>Board?</h1>
 <h2>Games Being Hosted:</h2>
+<% if @games != nil %>
+<% @games.each do |game| %>
+<p>- Name: <%= game.name %><br>
+Players Allowed: <%= game.minplayers %>-<%= game.maxplayers %><br>
+</p>
+
+<% end %>
+<% end %>

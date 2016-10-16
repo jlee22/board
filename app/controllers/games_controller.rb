@@ -10,16 +10,18 @@ post '/games' do
   game_array1 = game1.first
   game_id = game_array1.last["boardgame"].first["objectid"]
   game2 = HTTParty.get("http://boardgamegeek.com/xmlapi2/thing?id=#{game_id}")
-
-
-
   @minage = game2.first[1]["item"]["minage"]["value"]
   @year_published = game2.first[1]["item"]["yearpublished"]["value"]
   @minplayers = game2.first[1]["item"]["minplayers"]["value"]
   @maxplayers = game2.first[1]["item"]["maxplayers"]["value"]
   @game_description = game2.first[1]["item"]["description"].gsub("(from the back of the box:)","").gsub("&#10;","").gsub("&quot;","")
-
-  erb :index
+  @game = Game.new(name: @game_name, description: @game_description, minplayers: @minplayers, maxplayers: @maxplayers, yearpublished: @yearpublished)
+  if @game.save
+    @games = Game.all
+    erb :index
+  else
+    erb :'/games/new'
+  end
 end
 
 # Dominion id: 36218
