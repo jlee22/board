@@ -12,11 +12,10 @@ gem 'activerecord', '~>4.2.0'
 gem 'httparty'
 gem 'rake'
 gem 'dotenv'
-gem 'faker'
 gem 'bcrypt'
 gem 'shotgun'
 gem 'pry'
-
+gem 'awesome_print'
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

@@ -14,10 +14,10 @@ require 'httparty'
 require 'pg'
 require 'active_record'
 require 'logger'
-
+require 'faker'
 require 'sinatra'
 require "sinatra/reloader" if development?
-
+require 'awesome_print'
 require 'erb'
 require 'dotenv'
 Dotenv.load
