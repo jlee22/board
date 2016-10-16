@@ -4,6 +4,7 @@ get '/games/:id/new' do
 end
 
 post '/games' do
+  @games = Game.all
   @game_name =  params[:name]
   mod_game_name = @game_name.gsub(" ", "%20")
   game1 = HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=#{mod_game_name}&exact=1")
@@ -17,10 +18,9 @@ post '/games' do
   @game_description = game2.first[1]["item"]["description"].gsub("(from the back of the box:)","").gsub("&#10;","").gsub("&quot;","")
   @game = Game.new(name: @game_name, description: @game_description, minplayers: @minplayers, maxplayers: @maxplayers, yearpublished: @yearpublished)
   if @game.save
-    @games = Game.all
     erb :index
   else
-    erb :'/games/new'
+    erb :'/games/new_custom'
   end
 end
 
