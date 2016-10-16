@@ -3,15 +3,18 @@ get '/games/:id/new' do
   erb :'games/new'
 end
 
-post '/games' do
-  @games = Game.all
-    @game_name =  params[:name]
-    mod_game_name = @game_name.gsub(" ", "%20")
-    game1 = HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=#{mod_game_name}&exact=1")
+get '/games/:id' do
+  @game = Game.find(params[:id])
+end
 
-    game_array1 = game1.first
+post '/games' do
+  @game_name =  params[:name]
+  mod_game_name = @game_name.gsub(" ", "%20")
+  game1 = HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=#{mod_game_name}&exact=1")
+
+  game_array1 = game1.first
     # p game_array1
-    game_search = game_array1.last["boardgame"]
+  game_search = game_array1.last["boardgame"]
   if game_search == nil
     erb :'/games/new_custom'
   else
@@ -23,14 +26,19 @@ post '/games' do
     @maxplayers = game2.first[1]["item"]["maxplayers"]["value"]
     @game_description = game2.first[1]["item"]["description"].gsub("(from the back of the box:)","").gsub("&#10;","").gsub("&quot;","")
     @game = Game.new(name: @game_name, description: @game_description, minplayers: @minplayers, maxplayers: @maxplayers, yearpublished: @yearpublished)
-    erb :index
+    @games = Game.all
+    if @game.save
+      erb :index
+    end
   end
 end
 
-post '/custom_games' do
+post '/games/custom' do
+  @game = Game.new(params[:game])
   @games = Game.all
-  @game = Game.new(params[:games])
-  erb :index
+  if @game.save
+    erb :index
+  end
 end
 
 # Dominion id: 36218
