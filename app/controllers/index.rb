@@ -1,4 +1,5 @@
 get '/' do
+  @games = Game.all
   erb :index
 end
 

@@ -28,7 +28,7 @@ post '/users' do
     @errors = ["Passwords do not match!"]
     erb :'users/new'
   end
-  
+
 end
 
 # USERS SHOW
