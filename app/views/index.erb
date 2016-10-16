@@ -2,7 +2,8 @@
 <h2>Games Being Hosted:</h2>
 <% if @games != nil %>
 <% @games.each do |game| %>
-<p>- Name: <%= game.name %><br>
+<p>- Name: <a href = "games/<%= game.id %>"><%= game.name %></a><br>
+Host: <%= @host.username %><br>
 Players Allowed: <%= game.minplayers %>-<%= game.maxplayers %><br>
 </p>
 
