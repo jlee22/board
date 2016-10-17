@@ -28,12 +28,13 @@ post '/users' do
     @errors = ["Passwords do not match!"]
     erb :'users/new'
   end
-  
+
 end
 
 # USERS SHOW
 get '/users/:id' do
   @user = User.find(params[:id])
+  # @games_hosted = Games.find_by(:user_id, @user.id)
   erb :'users/show'
 end
 

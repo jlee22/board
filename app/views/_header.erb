@@ -1,12 +1,16 @@
+<div id="header_yo">
 <% if current_user %>
   <a href="/users/<%= current_user.id %> ">Profile Page</a> |
   <a href="/">Homepage</a> |
-  <a href="/games/<%= current_user.id %>/new">Host Game</a>
+  <a id="host-game-button" href="/games/<%= current_user.id %>/new">Host Game</a>
+  <div id="logout-button">
   <form action="/sessions" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Logout">
   </form>
+  </div>
 <% else %>
   <a href="/sessions/new">Login</a>
   <a href="/users/new">Register</a>
 <% end %>
+</div>
