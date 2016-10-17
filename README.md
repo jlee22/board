@@ -8,9 +8,22 @@ User Story:
 
 
 
-API Query
-HTTParty.get("http://www.boardgamegeek.com/xmlapi/search?search=")
-exact:
-http://www.boardgamegeek.com/xmlapi/search?search=Crossbows%20and%20Catapults&exact=1
+todo:
 
-just gotta pass user input to this
+add text function
+edit game function
+css/front end
+more ajax
+heroku
+
+
+refactor
+
+GameAPIAdapter::search("search string")
+thin out controller
+class/module GameAPIAdapter
+  include httpparty
+  def self.search(string)
+  api stuff
+
+end
