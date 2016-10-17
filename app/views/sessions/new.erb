@@ -1,8 +1,16 @@
 <h1>LOGIN PAGE</h1>
 
 <!-- post '/sessions' -->
+
 <form action="/sessions" method="POST">
-  <input type="text" name="email" placeholder="Email:">
-  <input type="password" name="password" placeholder="Password:">
-  <input type="submit" value="Login!">
+  <div class="wrapper">
+    <div class="material-textfield blue">
+      <input type="text" name="email" placeholder="Email:">
+    </div>
+    <div class="material-textfield red">
+      <input type="password" name="password" placeholder="Password:">
+    </div>
+  </div>
+      <input type="submit" value="Login!">
 </form>
+

@@ -2,6 +2,15 @@
   display: none;
 }
 
+html {
+  background: url("wood.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 form {
   margin-left: 20px;
   border-style: solid;
@@ -16,4 +25,8 @@ form {
 
 body {
   margin-left: 10px;
+  max-width: 80%;
 }
+
+
+
