@@ -7,7 +7,11 @@ end
 
 get '/games/:id/new' do
   @user = User.find(params[:id])
-  erb :'games/new'
+  if request.xhr?
+    erb :'games/new', layout: false
+  else
+    erb :'games/new'
+  end
 end
 
 get '/games/:id' do
