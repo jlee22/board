@@ -9,17 +9,6 @@ class CreateGames < ActiveRecord::Migration
       t.integer :yearpublished
       t.integer :user_id
       t.string  :host_name
-      t.integer :player_count
     end
   end
 end
-
-# user = User.first
-# game = Game.new(blah)
-# user.games
-# > []
-# user.games << game
-# user.games
-# > [game]
-
-# game.user_id = user.id

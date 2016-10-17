@@ -15,11 +15,19 @@ Description: <%= @game.description %><br><br>
 Players Allowed: <%= @game.minplayers %>-<%= @game.maxplayers %><br>
 Suggested Age: <%= @game.minage %> years old +<br><br>
 
-
+<h4>Current Player Count: <%= @game.player_count %></h4>
 <% if @host.username == current_user.username %>
 <form action="/games/<%= @game.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="End My Session">
+</form>
+<% end %>
+
+<% if @host.username != current_user.username && @game.maxplayers > @game.player_count %>
+<form action="/games/<%= @game.id %>" method="POST">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="player_count" value="<%= @game.player_count + 1 %>">
+  <input type="submit" value="Join This Game">
 </form>
 <% end %>
 

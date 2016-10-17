@@ -1,3 +1,10 @@
+put '/games/:id' do
+  "*" * 90
+  game = Game.find(params[:id])
+  game.update(player_count: params[:player_count])
+  redirect "/games/#{params[:id]}"
+end
+
 get '/games/:id/new' do
   @user = User.find(params[:id])
   erb :'games/new'
