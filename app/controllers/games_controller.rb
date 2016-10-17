@@ -47,4 +47,13 @@ post '/custom' do
   end
 end
 
+
+delete '/games/:id' do
+  game = Game.find(params[:id])
+  game.destroy
+  redirect '/'
+end
+
+
 # Dominion id: 36218
+

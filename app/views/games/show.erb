@@ -14,3 +14,12 @@ Address: <%= @host.address %></p>
 Description: <%= @game.description %><br><br>
 Players Allowed: <%= @game.minplayers %>-<%= @game.maxplayers %><br>
 Suggested Age: <%= @game.minage %> years old +<br><br>
+
+
+<% if @host.username == current_user.username %>
+<form action="/games/<%= @game.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="End My Session">
+</form>
+<% end %>
+
