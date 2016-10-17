@@ -16,6 +16,7 @@ gem 'bcrypt'
 gem 'shotgun'
 gem 'pry'
 gem 'awesome_print'
+gem 'haml'
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
