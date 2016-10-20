@@ -20,7 +20,7 @@ Suggested Age: <%= @game.minage %> years old +<br><br>
 
 <% if @host.username == current_user.username %>
 
-<form action="/messages/new" method="GET">
+<form action="/games/<%= @game.id %>/messages/new" method="GET">
   <input type="submit" value="Message Players">
 </form>
 
