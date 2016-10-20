@@ -1,12 +1,11 @@
 
 <h1>PROFILE PAGE</h1>
-<% if current_user %>
-  <h2>Welcome <%= current_user.username %>!</h2>
   <h3>User Info:</h3>
   <li>Username: <%= @user.username %></li>
   <li>Email: <%= @user.email %></li>
   <li>Phone Number: <%= @user.phone_number %></li>
   <li>Address: <%= @user.address %></li>
+<% if current_user == @user.username%>
   <button id="edit-user-button" class="button">Edit Info</button>
   <p id='edit-user-string' class="hidden">Edit:</p>
   <p><%= erb :'users/edit', layout: false %></p>

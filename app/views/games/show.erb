@@ -6,7 +6,6 @@
 Phone Number: <%= @host.phone_number %><br>
 Address: <%= @host.address %></p>
 
-
 <h3>Game Description:</h3>
 
 Description: <%= @game.description %><br><br>
@@ -14,7 +13,10 @@ Players Allowed: <%= @game.minplayers %>-<%= @game.maxplayers %><br>
 Suggested Age: <%= @game.minage %> years old +<br><br>
 
 <h4>Current Player Count: <%= @game.players.length %></h4>
-<p>Players:</p>
+<p>Players -
+<% @game.players.each do |player| %>
+<a href = "/users/<%= player.id %>"><%= player.username %></a>
+<% end %></p><br>
 
 <% if @host.username == current_user.username %>
 
@@ -28,7 +30,7 @@ Suggested Age: <%= @game.minage %> years old +<br><br>
 </form>
 <% end %>
 
-<% if @host.username != current_user.username && @game.maxplayers > @game.players.length %>
+<% if @host.username != current_user.username && @game.maxplayers > @game.players.length && @game.players.exclude?(current_user) %>
 <form action="/games/<%= @game.id %>" method="POST">
   <input type="hidden" name="_method" value="put">
   <input type="submit" value="Join This Game">
