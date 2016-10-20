@@ -1,5 +1,5 @@
 
-2.times do
+3.times do
   User.create(
     username: Faker::Internet.user_name,
     email: Faker::Internet.email,
@@ -9,10 +9,10 @@
     )
 end
 
-User.create(username: 's', email: 's@s', address: 'S St.', phone_number: '2027310710', password: 's')
+# User.create(username: 's', email: 's@s', address: 'S St.', phone_number: '2027310710', password: 's')
 
 
-User.create(username: 'j', email: 'j@j', address: 'j jt.', phone_number: '2027310710', password: 'j')
+# User.create(username: 'j', email: 'j@j', address: 'j jt.', phone_number: '2027310710', password: 'j')
 
 Game.create(name: 'Setters of Catan', description: "Strategic card drafting board game that challenges that players to think dynamically", minplayers:2, maxplayers: 4, minage: 13, host: User.first)
 

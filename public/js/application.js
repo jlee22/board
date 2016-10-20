@@ -12,6 +12,7 @@ $(document).ready(function() {
     // event.preventDefault();
   });
   hostGameButtonListener();
+  messagePlayersListener();
 });
 
 
@@ -22,7 +23,7 @@ var hostGameButtonListener = function() {
     var address = postFormTarget.attr('href');
     var data = postFormTarget.attr('href');
     // $('#host-game-button').addClass('hidden')
-    var request = $.ajax({
+      var request = $.ajax({
         url: address,
         method: "get",
         data: data
@@ -35,9 +36,26 @@ var hostGameButtonListener = function() {
       });
 
       request.fail(function(response) {
-        alert("You fucked it up!");
+        alert("Failure!");
       });
+  });
+};
 
-  })
+var messagePlayersListener = function() {
+  $('#message-players').on('click', function(event) {
+  event.preventDefault();
+  var postFormTarget = $(this);
+  var address = postFormTarget.attr('action');
+    var request = $.ajax({
+      url: address,
+      method: "get",
+    });
+
+    request.done(function(response) {
+      console.log(response)
+      $('#message-players').addClass('hidden')
+      $('#message-div').append('<p>' + response + '</p');
+    });
+  });
 };
 

@@ -13,14 +13,14 @@ Players Allowed: <%= @game.minplayers %>-<%= @game.maxplayers %><br>
 Suggested Age: <%= @game.minage %> years old +<br><br>
 
 <h4>Current Player Count: <%= @game.players.length %></h4>
-<p>Players -
+<p>Players - <br>
 <% @game.players.each do |player| %>
-<a href = "/users/<%= player.id %>"><%= player.username %></a>
+<a href = "/users/<%= player.id %>"><%= player.username %><br></a>
 <% end %></p><br>
-
+<div id="message-div"></div>
 <% if @host.username == current_user.username %>
 
-<form action="/games/<%= @game.id %>/messages/new" method="GET">
+<form id="message-players" action="/games/<%= @game.id %>/messages/new" method="GET">
   <input type="submit" value="Message Players">
 </form>
 

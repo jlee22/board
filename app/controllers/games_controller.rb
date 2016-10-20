@@ -72,8 +72,11 @@ end
 get '/games/:id/messages/new' do
   @game = Game.find(params[:id])
   @contacts = @game.players
-  # @source = Resource.all
-  erb :'messages/new'
+  if request.xhr?
+    erb :'messages/new', layout: false
+  else
+    erb :'messages/new'
+  end
 end
 
 
@@ -93,7 +96,7 @@ post '/games/:id/messages' do
   end
   @contacts.each do |player|
   @client.account.messages.create({
-    :from => "+1 408-872-9724",
+    :from => "+14088729724",
     :to => "14088069983",
     :body => @text,
   })
