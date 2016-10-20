@@ -1,7 +1,8 @@
 put '/games/:id' do
-  "*" * 90
   game = Game.find(params[:id])
-  game.update(player_count: params[:player_count])
+  # game.update(player_count: params[:player_count])
+  # @player = current_user
+  game.players << current_user
   redirect "/games/#{params[:id]}"
 end
 
@@ -16,7 +17,7 @@ end
 
 get '/games/:id' do
   @game = Game.find(params[:id])
-  @host = User.find(@game.user_id)
+  @host = User.find(@game.host_id)
   erb :'games/show'
 end
 
@@ -41,7 +42,9 @@ post '/games' do
     @minplayers = game2.first[1]["item"]["minplayers"]["value"]
     @maxplayers = game2.first[1]["item"]["maxplayers"]["value"]
     @game_description = game2.first[1]["item"]["description"].gsub("(from the back of the box:)","").gsub("&#10;","").gsub("&quot;","")
-    @game = Game.new(name: @game_name, description: @game_description, minplayers: @minplayers, maxplayers: @maxplayers, yearpublished: @yearpublished, user_id: @user_id, host_name: @user_name)
+    # @game = Game.new(name: @game_name, description: @game_description, minplayers: @minplayers, maxplayers: @maxplayers, yearpublished: @yearpublished, user_id: @user_id, host_name: @user_name)
+    @game = Game.new(name: @game_name, description: @game_description, minplayers: @minplayers, maxplayers: @maxplayers, yearpublished: @yearpublished, host: current_user)
+
     @games = Game.all
     if @game.save
       erb :index
@@ -52,7 +55,7 @@ end
 post '/custom' do
   @game = Game.new(params[:game])
   @games = Game.all
-  @host = User.find(@game.user_id)
+  @host = User.find(current_user.id)
   if @game.save
     erb :index
   end
@@ -65,6 +68,41 @@ delete '/games/:id' do
   redirect '/'
 end
 
+
+get '/games/:id/messages/new' do
+  @game = Game.find(params[:id])
+  @contacts = @game.players
+  if request.xhr?
+    erb :'messages/new', layout: false
+  else
+    erb :'messages/new'
+  end
+end
+
+
+post '/games/:id/messages' do
+  @game = Game.find(params[:id])
+  @contacts = @game.players # array of player objects
+
+  account_sid = ENV['ACCOUNT_SID']
+  auth_token = ENV['AUTH_TOKEN']
+
+  @client = Twilio::REST::Client.new account_sid, auth_token
+
+  if params[:custom_text].length > 0
+  @text = params[:custom_text]
+  else
+  erb :'messages/new'
+  end
+  @contacts.each do |player|
+  @client.account.messages.create({
+    :from => "+14088729724",
+    :to => "14088069983",
+    :body => @text,
+  })
+  end
+
+end
 
 # Dominion id: 36218
 

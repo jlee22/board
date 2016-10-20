@@ -1,10 +1,10 @@
-<div id="title-div"></div>
+
 <h1 id="website-name">Board?</h1>
 <h2>Games Being Hosted:</h2>
   <% if @games != nil %>
     <% @games.each do |game| %>
     <p>- Name: <a href = "games/<%= game.id %>"><%= game.name %></a><br>
-    Host: <%= game.host_name %><br>
+    Host: <%= game.host.username %><br>
     Players Allowed: <%= game.minplayers %>-<%= game.maxplayers %><br>
     </p>
   <% end %>

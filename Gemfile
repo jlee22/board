@@ -17,6 +17,7 @@ gem 'faker'
 gem 'shotgun'
 gem 'pry'
 gem 'awesome_print'
+gem 'twilio-ruby', '~> 4.2.1'
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

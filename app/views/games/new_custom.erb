@@ -6,7 +6,7 @@
   <input type="text" name="game[maxplayers]" placeholder="Max Players:"><br>
   <input type="text" name="game[minage]" placeholder="Minimum Age:"><br>
   <textarea rows="7" cols="35" name="game[description]" placeholder="Description:"></textarea>
-  <input type="hidden" name="game[user_id]" value="<%= current_user.id %>">
-    <input type="hidden" name="game[host_name]" value="<%= current_user.username %>"><br>
+  <input type="hidden" name="game[host_id]" value="<%= current_user.id %>">
+
   <input type="submit" value="Host!">
 </form>

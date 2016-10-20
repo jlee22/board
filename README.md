@@ -14,7 +14,7 @@ add text function
 edit game function
 css/front end
 more ajax
-heroku
+
 
 
 refactor
@@ -27,3 +27,11 @@ class/module GameAPIAdapter
   api stuff
 
 end
+
+
+twilio api key
+
+auth token :
+22d0ddadc15c322ce6cf9433984453e3
+
+twilio phone number
