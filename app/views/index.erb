@@ -3,10 +3,12 @@
 <h2>Games Being Hosted:</h2>
   <% if @games != nil %>
     <% @games.each do |game| %>
+    <div class="games">
     <p>- Name: <a href = "games/<%= game.id %>"><%= game.name %></a><br>
     Host: <%= game.host.username %><br>
     Players Allowed: <%= game.minplayers %>-<%= game.maxplayers %><br>
     </p>
+    </div>
   <% end %>
 <% end %>
 
