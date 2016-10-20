@@ -7,8 +7,9 @@ class CreateGames < ActiveRecord::Migration
       t.integer :maxplayers
       t.integer :minage
       t.integer :yearpublished
-      t.integer :user_id
-      t.string  :host_name
+      t.integer :host_id
+
+      t.timestamps null: false
     end
   end
 end

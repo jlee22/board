@@ -8,8 +8,10 @@ class User < ActiveRecord::Base
   validates_presence_of :password
   validates_presence_of :email
   validates_uniqueness_of :email
+  validates_presence_of :phone_number
 
-  has_many :games
+  has_many :hosted_games, class_name: 'Game', foreign_key: 'host_id'
+  has_and_belongs_to_many :games
 
   def password
     @password ||= Password.new(password_hash)

@@ -8,3 +8,10 @@
 #     password: "password"
 #     )
 # end
+
+User.create(username: 's', email: 's@s', address: 'S St.', phone_number: '2027310710', password: 's')
+
+
+User.create(username: 'j', email: 'j@j', address: 'j jt.', phone_number: '2027310710', password: 'j')
+
+Game.create(name: 'Catan', host: User.first)
