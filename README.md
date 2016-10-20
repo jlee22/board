@@ -30,8 +30,8 @@ end
 
 
 twilio api key
-AC548e8be814da03e1111f85d270d2a324
+
 auth token :
 22d0ddadc15c322ce6cf9433984453e3
 
-twilio phone number (408) 872-9724
+twilio phone number

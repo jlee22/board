@@ -16,7 +16,13 @@ Players Allowed: <%= @game.minplayers %>-<%= @game.maxplayers %><br>
 Suggested Age: <%= @game.minage %> years old +<br><br>
 
 <h4>Current Player Count: <%= @game.player_count %></h4>
+
 <% if @host.username == current_user.username %>
+
+<form action="/messages/new" method="GET">
+  <input type="submit" value="Message Players">
+</form>
+
 <form action="/games/<%= @game.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="End My Session">
