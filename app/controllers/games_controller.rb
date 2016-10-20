@@ -89,19 +89,19 @@ post '/games/:id/messages' do
 
   @client = Twilio::REST::Client.new account_sid, auth_token
 
-  if params[:custom_text].length > 0
+  # if params[:custom_text]
   @text = params[:custom_text]
-  else
-  erb :'messages/new'
-  end
-  @contacts.each do |player|
+  # else
+  # erb :'messages/new'
+  # end
+  # @contacts.each do |player|
   @client.account.messages.create({
     :from => "+14088729724",
     :to => "14088069983",
     :body => @text,
   })
-  end
-
+  # end
+  redirect "/games/#{@game.id}"
 end
 
 # Dominion id: 36218
