@@ -5,8 +5,10 @@
   <li>Email: <%= @user.email %></li>
   <li>Phone Number: <%= @user.phone_number %></li>
   <li>Address: <%= @user.address %></li>
+<% if logged_in? %>
 <% if current_user.username == @user.username%>
   <button id="edit-user-button" class="button">Edit Info</button>
   <p id='edit-user-string' class="hidden">Edit:</p>
   <p><%= erb :'users/edit', layout: false %></p>
+<% end %>
 <% end %>
