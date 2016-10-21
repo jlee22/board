@@ -33,7 +33,7 @@ body {
 }
 
 a{
-  color: #888;
+  color: #0074D9;
   text-decoration: none;
 }
 
@@ -53,4 +53,9 @@ a:hover{
   opacity: 0.7;
   font: 700 60px 'Bitter';
 }
+
+ul {
+  list-style-image: url('css/rook.png');
+}
+
 

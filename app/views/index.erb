@@ -1,10 +1,11 @@
 
-<h1 id="website-name">Board?</h1>
+<h1 id="website-name">Board?<img src="css/chess-pieces.png" alt="Chess Pieces"></h1>
+
 <h3>Games Being Hosted:</h3>
   <% if @games != nil %>
     <% @games.each do |game| %>
     <div class="games">
-    <p>- Name: <a href = "games/<%= game.id %>"><%= game.name %></a><br>
+    <p><img src="css/flag.png" alt="Flag">- Name: <a href = "games/<%= game.id %>"><%= game.name %></a><br>
     Host: <%= game.host.username %><br>
     Players Allowed: <%= game.minplayers %>-<%= game.maxplayers %><br>
     </p>
