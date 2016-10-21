@@ -12,7 +12,7 @@ post '/sessions' do
     redirect '/'
 
   else
-    @errors = "Username && Password not found."
+    @errors = "Username && Password not found. Try registering for a new account"
     erb :'sessions/new'
   end
 end
