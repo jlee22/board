@@ -18,6 +18,7 @@ end
 get '/games/:id' do
   @game = Game.find(params[:id])
   @host = User.find(@game.host_id)
+  @url = Youtube.get_id(@game.name)
   erb :'games/show'
 end
 
