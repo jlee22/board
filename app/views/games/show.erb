@@ -12,12 +12,17 @@ Description: <%= @game.description %><br><br>
 Players Allowed: <%= @game.minplayers %>-<%= @game.maxplayers %><br>
 Suggested Age: <%= @game.minage %> years old +<br><br>
 
+<iframe class="track-youtube-video"
+              src="https://www.youtube.com/embed/<%= @url %>?enablejsapi=1"
+              ></iframe>
+
 <h4>Current Player Count: <%= @game.players.length %></h4>
 <p>Players - <br>
 <% @game.players.each do |player| %>
 <a href = "/users/<%= player.id %>"><%= player.username %><br></a>
 <% end %></p><br>
 <div id="message-div"></div>
+<% if logged_in? %>
 <% if @host.username == current_user.username %>
 
 <form id="message-players" action="/games/<%= @game.id %>/messages/new" method="GET">
@@ -35,5 +40,6 @@ Suggested Age: <%= @game.minage %> years old +<br><br>
   <input type="hidden" name="_method" value="put">
   <input type="submit" value="Join This Game">
 </form>
+<% end %>
 <% end %>
 
