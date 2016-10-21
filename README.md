@@ -28,10 +28,48 @@ class/module GameAPIAdapter
 
 end
 
+TO MAKE A USER HOST A GAME:
 
-twilio api key
+Upon Game object creation, do
 
-auth token :
-22d0ddadc15c322ce6cf9433984453e3
+Game.create(name: …
+    …
+    ..
 
-twilio phone number
+    host: <USER OBJECT>
+    )
+
+TO ADD A PLAYER TO A GAME
+
+After Game object creation, do
+
+game.players << <USER OBJECT>
+
+To see all of a Game object’s players, do
+
+game.players
+
+To see all games that a user has joined, do
+
+user.games
+
+To see a game’s host, do
+
+game.host
+
+To see a user’s hosted games, do
+
+user.hosted_games
+
+
+CHANGES MADE IN CONTROLLERS/VIEWS:
+
+games_controller:
+Saving a game:
+Line 44 => Line 45?
+Adding a player to a game:
+Lines 3 and 4 => Line 5?
+
+Now you can change the view in show.erb to iterate through all of game.players and show all the usernames of the people in your game.
+
+If you have a user profile, then you can make it so that a player can see all of their hosted and joined games!
