@@ -12,7 +12,7 @@ post '/sessions' do
     redirect '/'
 
   else
-    @errors = ["Username && Password not found."]
+    @errors = "Username && Password not found."
     erb :'sessions/new'
   end
 end
@@ -22,6 +22,6 @@ end
 # delete '/sessions/:id' do
 delete '/sessions' do
   # session[:id] = nil
-  logout 
+  logout
   redirect '/'
 end

@@ -1,7 +1,7 @@
 <div id="header_yo">
 <% if current_user %>
   <a href="/users/<%= current_user.id %> ">Profile Page</a> |
-  <a href="/">Homepage</a> |
+  <a class="pad-bottom" href="/">Homepage</a> |
   <a id="host-game-button" href="/games/<%= current_user.id %>/new">Host Game</a>
   <div id="logout-button">
   <form action="/sessions" method="POST">
@@ -12,6 +12,6 @@
 <% else %>
   <a href="/sessions/new">Login</a> |
   <a href="/users/new">Register</a> |
-  <a href="/">Homepage</a>
+  <a class="pad-bottom" href="/">Homepage</a>
 <% end %>
 </div>

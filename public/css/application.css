@@ -30,6 +30,7 @@ form {
 #header_yo {
   margin-left: 10px;
   border-bottom: 2px solid grey;
+  max-width: 300px;
 }
 
 body {
@@ -69,5 +70,9 @@ iframe {
 
 .games {
   font-size: 1.1em;
+}
+
+.pad-bottom {
+  padding-bottom: 5px;
 }
 
