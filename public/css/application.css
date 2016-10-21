@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+
 .hidden {
   display: none;
 }
@@ -8,6 +10,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  max-width: 960px;
 }
 
 
@@ -29,5 +32,25 @@ body {
   max-width: 80%;
 }
 
+a{
+  color: #888;
+  text-decoration: none;
+}
 
+a:hover{
+  color:#355;
+  font-size: 1.08em;
+}
+
+#logout-button {
+  margin-left: 600px;
+  padding-bottom: 10px;
+}
+
+#website-name {
+  text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
+  color: #343;
+  opacity: 0.7;
+  font: 700 60px 'Bitter';
+}
 
