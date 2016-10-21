@@ -58,4 +58,9 @@ ul {
   list-style-image: url('css/rook.png');
 }
 
+iframe {
+  width: 500px;
+  height: 275px;
+}
+
 
